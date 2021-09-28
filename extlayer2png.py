@@ -72,6 +72,7 @@ class ExportSlices(inkex.EffectExtension):
         pars.add_argument("--directory", default=os.path.expanduser("~"),\
             help="Existing destination directory")
         pars.add_argument("--layer", default="slices", help="Layer with slices (rects) in it")
+        pars.add_argument("--prefix", default="", help="File name prefix")
         pars.add_argument("--iconmode", type=inkex.Boolean, help="Icon export mode")
         pars.add_argument("--sizes", default="128, 64, 48, 32, 24, 16",\
             help="sizes to export comma separated")
@@ -184,7 +185,8 @@ class ExportSlices(inkex.EffectExtension):
         directory = self.options.directory
         node_id = node.attrib['id']
         size = '' if height is None else '-{}x{}'.format(width, height)
-        file_name = "{}{}.png".format(node_id, size)
+        prefix = self.options.prefix
+        file_name = "{}{}{}.png".format(node_id, prefix, size)
         filename = os.path.join(directory, file_name)
         color = ExportSlices.GREY  # skipping
         if self.options.overwrite or not os.path.exists(filename):

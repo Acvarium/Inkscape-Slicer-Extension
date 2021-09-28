@@ -10,6 +10,7 @@
       <param name="overwrite" type="bool" gui-text="Overwrite existing exports">true</param>
       <param name="selected" type="bool" gui-text="Selected slices only">false</param>
       <param name="directory" type="path" mode="folder" gui-text="Directory"></param>
+      <param name="prefix" type="string" gui-text="File name prefix:"></param>
       <param name="dpi" type="string" gui-text="DPI">300</param>
     </page>
     <page name="about_tab" gui-text="About">
